@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ludo design</title>
+    <style>
+        body {
+            background-color: black;
+
+
+        }
+
+        .outer {
+            height: 600px;
+            width: 600px;
+            border: 2px solid rgb(0, 0, 0);
+            margin: auto;
+            background-color: rgb(255, 255, 255);
+        }
+
+        .box_row {
+            height: 220px;
+            width: 600px;
+            border: 2px solid rgb(84, 80, 80);
+        }
+
+        .player_home {
+            height: 140px;
+            width: 140px;
+            border: 40px solid red;
+        }
+
+        .circle {
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            border: 3px solid rgb(158, 3, 3);
+            background-color: red;
+            float: left;
+            margin: 11px;
+        }
+
+        .box_row_right {
+            height: 600px;
+            width: 220px;
+            border: 1px solid rgb(0, 0, 0);
+            position: absolute;
+            right: 270px;
+            top: 8px;
+            display: inline-block;
+            float: left;
+        }
+
+        .box_row_left {
+            height: 600px;
+            width: 220px;
+            border: 1px solid rgb(0, 0, 0);
+            position: absolute;
+            left: 270px;
+            top: 8px;
+            display: inline-block;
+        }
+
+        .path_large_box_row {
+            height: 28.5%;
+            width: 110.5vh;
+            border: 2px solid rgb(0, 0, 0);
+            position: absolute;
+            top: 43%;
+        }
+
+        .path_square_row_left {
+            height: 32%;
+            width: 30.2%;
+            border: 1px solid rgb(0, 0, 0);
+            background-color: red;
+            border-left: 36px solid white;
+            display: flex;
+            position: absolute;
+            top: 32.5%;
+
+        }
+
+        .path_square_row_right {
+            height: 32%;
+            width: 30.6%;
+            border: 1px solid rgb(0, 0, 0);
+            background-color: yellow;
+            border-right: 36px solid white;
+            position: absolute;
+            top: 32.5%;
+            right: 0%;
+
+        }
+
+        .path_large_box_column {
+            height: 110.5%;
+            width: 13.8%;
+            border: 2px solid rgb(0, 0, 0);
+            position: absolute;
+            right: 90.7vh;
+        }
+
+        .path_square_column_top {
+            height: 30.5%;
+            width: 32%;
+            border: 1px solid rgb(0, 0, 0);
+            background-color: blue;
+            border-top: 36.7px solid white;
+            position: absolute;
+            right: 32%;
+        }
+
+        .path_square_column_bottom {
+            height: 30.6%;
+            width: 32%;
+            border: 1px solid rgb(0, 0, 0);
+            background-color: green;
+            border-bottom: 36.7px solid white;
+            position: absolute;
+            right: 32%;
+            bottom: 0%;
+        }
+
+        .square_row_left {
+            height: 100%;
+            width: 5.85%;
+            border: 1px solid rgb(0, 0, 0);
+            position: relative;
+            top: 0%;
+            float: left;
+         
+
+        }
+
+        .square_row_right {
+            height: 100%;
+            width: 5.85%;
+            border: 1px solid rgb(0, 0, 0);
+            position: relative;
+            right: 0%;
+            float: right;
+        }
+
+        .square_column_top {
+            height: 5.85%;
+            width: 100%;
+            border: 1px solid rgb(0, 0, 0);
+            position: relative;
+
+            float: bottom;
+        }
+
+        .square_column_bottom {
+            height: 5.85%;
+            width: 100%;
+            border: 1px solid rgb(0, 0, 0);
+            position: relative;
+            top: 26.4%;
+            float: top;
+        }
+        .red_square{
+            height: 65%;
+            width: 100%;
+            background-color: red;
+            border-bottom: 52px solid rgb(255, 255, 255);
+            z-index: -1;
+            
+        }.blue_square{
+            height: 100%;
+            width: 65%;
+            background-color: blue;
+            border-left: 54.5px solid rgb(255, 255, 255);
+            z-index: -1;
+            
+        }.yellow_square{
+            height: 67%;
+            width: 100%;
+            background-color: yellow;
+            border-top: 49.5px solid rgb(255, 255, 255);
+            z-index: -1;
+            
+        }.green_square{
+            height: 100%;
+            width: 67.5%;
+            background-color: green;
+            border-right: 52px solid rgb(255, 253, 253);
+            z-index: -1;  
+        }
+        .star_green{
+            box-sizing: border-box;
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 128, 0, 0);
+            border-bottom: 54.2px solid  green;
+        }
+        .star_blue{
+            height: 32%;
+            width: 100%;
+            background-color:blue;
+        }
+        .star_red{
+            height:100%;
+            width:34%;
+        background-color: red;
+        }
+        .star_yellow{
+            height:100%;
+            width:67.4%;
+        background-color: rgba(255, 0, 0, 0);
+        border-right:54.4px solid yellow;
+        }
+        .img1{
+            height: 155px;
+            width: 158px;
+        }
+        #red{
+           /*  height: 200%;
+            width: 200%; */
+            font-size: xx-large;
+           /*  text-align: center;
+            justify-content: center;
+            vertical-align: middle; */
+            padding-left: 4.5px;
+            padding-: 2px;
+            margin-top: 0px;
+        }
+        #yellow{
+            font-size: xx-large;
+            padding-top: 52px;
+            padding-left: 4.5px;
+        }
+        #blue{
+            font-size: xx-large;
+            padding-left: 63%;
+            padding-bottom: 10%;
+           
+        }
+#green{
+    font-size: xx-large;
+    position: absolute;
+          padding-left: 9%; 
+          padding-bottom: 40px;
+         
+}
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <div class="path_large_box_row">
+            <img class="img1" src="my_pic.jpg" alt="error">
+            <div class="path_square_row_left"></div>
+            <div class="path_square_row_right"></div>
+            <div class="square_row_left"></div>
+            <div class="square_row_left">
+                <div class="red_square">
+                    <div class="star" id="red">✯</div>
+                </div>
+            </div>
+            <div class="square_row_left">
+                <div class="star_green"></div>
+            </div>
+            <div class="square_row_left"></div>
+            <div class="square_row_left"></div>
+            <div class="square_row_left"></div>
+            <div class="square_row_right"></div>
+            <div class="square_row_right">
+                <div class="yellow_square">
+                  <div class="star" id="yellow">✯</div>
+                </div>
+            </div>
+            <div class="square_row_right">
+                <div class="star_blue"></div>
+            </div>
+            <div class="square_row_right"></div>
+            <div class="square_row_right">
+                
+            </div>
+            <div class="square_row_right"></div>
+
+        </div>
+        <div class="path_large_box_column">
+            <div class="path_square_column_top"></div>
+            <div class="path_square_column_bottom"></div>
+            <div class="square_column_top"></div>
+            <div class="square_column_top">
+                <div class="blue_square">
+                    <div class="star" id="blue">✯</div>
+                </div>
+                
+            </div>
+            <div class="square_column_top">
+                <div class="star_red"></div>
+            </div>
+            <div class="square_column_top"></div>
+            <div class="square_column_top">
+                .
+            </div>
+            <div class="square_column_top"></div>
+            <div class="square_column_bottom"></div>
+            <div class="square_column_bottom">
+ 
+            </div>
+            <div class="square_column_bottom"></div>
+            <div class="square_column_bottom">
+                <div class="star_yellow"></div>
+            </div>
+            <div class="square_column_bottom">
+                <div class="green_square">
+                    <div class="star" id="green">✯</div>
+                </div>
+            </div>
+            <div class="square_column_bottom"></div>
+        </div>
+        <div class="box_row">
+            <div class="player_home">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+
+            </div>
+
+        </div>
+        <div class="box_row_right">
+            <div class="player_home" style="border: 40px solid blue; border-bottom:43px solid blue;">
+                <div class="circle" style="background-color: blue; border-color: rgb(20, 3, 150);"></div>
+                <div class="circle" style="background-color: blue; border-color: rgb(20,03,150);"></div>
+                <div class="circle" style="background-color: blue; border-color: rgb(20,03,150);"></div>
+                <div class="circle" style="background-color: blue; border-color: rgb(20, 03, 150);"></div>
+                <div class="player_home" style="border: 40px solid rgb(212, 249, 4);
+        position: absolute; bottom: 0px; right: 0px;">
+                    <div class="circle" style="background-color: rgb(212, 249, 4); border-color: rgb(146, 169, 3);">
+                    </div>
+                    <div class="circle" style="background-color: rgb(212, 249, 4); border-color: rgb(146, 169, 3);">
+                    </div>
+                    <div class="circle" style="background-color: rgb(212, 249, 4); border-color: rgb(146, 169, 3);">
+                    </div>
+                    <div class="circle" style="background-color: rgb(212, 249, 4); border-color: rgb(146, 169, 3);">
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="box_row_left">
+            <div class="player_home" style="border: 40px solid rgb(4, 249, 24);
+        position: absolute; bottom: 0px;">
+                <div class="circle" style="background-color: rgb(4, 249, 24); border-color: rgb(30, 152, 2);"></div>
+                <div class="circle" style="background-color: rgb(4, 249, 24); border-color: rgb(30, 152, 2);"></div>
+                <div class="circle" style="background-color: rgb(4, 249, 24); border-color: rgb(30, 152, 2);"></div>
+                <div class="circle" style="background-color: rgb(4, 249, 24); border-color: rgb(30, 152, 2);"></div>
+
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
